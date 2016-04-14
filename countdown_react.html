@@ -15,8 +15,20 @@
     <div id="countdown"></div>
     <script type="text/babel">
     
-    var React = require('react');
-      // countdown
+  var CommentBox = React.createClass({
+    render: function() {
+      return (
+        <div className="commentBox">
+        countdown shall be displayed
+        </div>
+        );
+    }
+  });
+  
+  ReactDOM.render(
+    <CommentBox />,
+    document.getElementById('countdown')
+    );
 
     </script>
   </body>
