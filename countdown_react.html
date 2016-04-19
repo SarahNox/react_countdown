@@ -28,22 +28,20 @@
     }
   };
 
-  var Countdown = React.createClass({
+  var TimerRunning = React.createClass({
     mixins: [SetIntervalMixin], 
     getInitialState: function() {
       return {seconds: 15,
               toggle: false,
-              onoff: "Start" };
+              buttonLabel: "Start" };
     },
     handleClick: function() {
       if(this.state.toggle){
-        this.setState({toggle: false});
+        this.setState({toggle: false, buttonLabel: "Start"});
         clearInterval(this.intervals);
-        this.setState({onoff: "Start"})
       } else {
-        this.setState({toggle: true});
+        this.setState({toggle: true, buttonLabel: "Pause"});
         this.setInterval(this.tick, 1000);
-        this.setState({onoff: "Pause"})
       }
     },
     tick: function() {
@@ -54,7 +52,7 @@
         return (
           <p>Countdown {this.state.seconds} seconds
           <br></br>
-          <button onClick={this.handleClick}>{this.state.onoff}</button>
+          <button onClick={this.handleClick}>{this.state.buttonLabel}</button>
           </p>
           );
       } else {
@@ -66,7 +64,7 @@
   });
 
   ReactDOM.render(
-    <Countdown />,
+    <TimerRunning />,
     document.getElementById('countdown')
     );
 
