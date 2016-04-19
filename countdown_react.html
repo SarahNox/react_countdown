@@ -32,15 +32,18 @@
     mixins: [SetIntervalMixin], 
     getInitialState: function() {
       return {seconds: 15,
-              toggle: false };
+              toggle: false,
+              onoff: "Start" };
     },
     handleClick: function() {
       if(this.state.toggle){
         this.setState({toggle: false});
-        clearInterval(this.intervals)
+        clearInterval(this.intervals);
+        this.setState({onoff: "Start"})
       } else {
         this.setState({toggle: true});
-        this.setInterval(this.tick, 1000)
+        this.setInterval(this.tick, 1000);
+        this.setState({onoff: "Pause"})
       }
     },
     tick: function() {
@@ -51,7 +54,7 @@
         return (
           <p>Countdown {this.state.seconds} seconds
           <br></br>
-          <button onClick={this.handleClick}> Start/Pause </button>
+          <button onClick={this.handleClick}>{this.state.onoff}</button>
           </p>
           );
       } else {
