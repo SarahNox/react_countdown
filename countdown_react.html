@@ -20,6 +20,9 @@
     setInterval: function() {
       this.intervals.push(setInterval.apply(null, arguments));
     },
+    clearInterval: function() {
+      this.intervals;
+    },
     componentWillUnmount: function() {
       this.intervals.forEach(clearInterval);
     }
@@ -28,10 +31,17 @@
   var Countdown = React.createClass({
     mixins: [SetIntervalMixin], 
     getInitialState: function() {
-      return {seconds: 15};
+      return {seconds: 15,
+              toggle: false };
     },
-    componentDidMount: function() {
-      this.setInterval(this.tick, 1000);
+    handleClick: function() {
+      if(this.state.toggle){
+        this.setState({toggle: false});
+        clearInterval(this.intervals)
+      } else {
+        this.setState({toggle: true});
+        this.setInterval(this.tick, 1000)
+      }
     },
     tick: function() {
       this.setState({seconds: this.state.seconds - 1});
@@ -39,7 +49,10 @@
     render: function() {
       if (this.state.seconds > 0) {
         return (
-          <p>Countdown {this.state.seconds} seconds</p>
+          <p>Countdown {this.state.seconds} seconds
+          <br></br>
+          <button onClick={this.handleClick}> Start/Pause </button>
+          </p>
           );
       } else {
         return (
@@ -49,11 +62,13 @@
     }
   });
 
-
   ReactDOM.render(
     <Countdown />,
     document.getElementById('countdown')
     );
+
   </script>
 </body>
 </html>
+
+
