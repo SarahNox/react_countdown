@@ -1,0 +1,32 @@
+{
+  "name": "react_countdown",
+  "version": "1.0.0",
+  "description": "countdown in react",
+  "main": "app.js",
+  "dependencies": {
+    "babel-preset-react": "^6.5.0",
+    "babelify": "^7.3.0",
+    "react": "^15.1.0",
+    "react-dial-master": "^1.0.1",
+    "react-dom": "^15.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "browserify -t [ babelify --presets [ react ] ] src/index.js -o build/app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SarahNox/react_countdown.git"
+  },
+  "keywords": [
+    "react",
+    "countdown"
+  ],
+  "author": "Sarah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SarahNox/react_countdown/issues"
+  },
+  "homepage": "https://github.com/SarahNox/react_countdown#readme"
+}
