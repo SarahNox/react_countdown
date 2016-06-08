@@ -38732,7 +38732,13 @@ module.exports = React.createClass({
       return React.createElement(
         'p',
         null,
-        this.state.seconds
+        this.state.seconds,
+        React.createElement('br', null),
+        React.createElement(
+          'button',
+          { onClick: this.handleClick },
+          this.state.buttonLabel
+        )
       );
     } else {
       return React.createElement(

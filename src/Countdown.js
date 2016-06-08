@@ -45,7 +45,11 @@ module.exports = React.createClass({
     },
     render: function() {
         if (this.state.seconds > 0) {
-        return(<p>{this.state.seconds}</p>);
+        return(
+          <p>{this.state.seconds}
+          <br></br>
+          <button onClick={this.handleClick}>{this.state.buttonLabel}</button>
+          </p>);
       } else {
         return (
           <div>Pomodoro finished</div>
