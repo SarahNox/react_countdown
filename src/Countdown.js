@@ -1,13 +1,7 @@
 
 var React = require('react');
- 
-// module.exports = React.createClass({
-//   render: function() {
-//     return <p>{this.props.message}</p>;
-//   }
-// });
 
-  var Dial = require('react-dial-master');
+var Dial = require('react-dial-master');
 
   var SetIntervalMixin = {
     componentWillMount: function() {
