@@ -1,17 +1,7 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <title>React-Tomato</title>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.8/react-dom.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.6.16/browser.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/marked/0.3.5/marked.min.js"></script>
-</head>
-<body>
-  <div id="countdown"></div>
-  <script type="text/babel">
+
+var React = require('react');
+
+var Dial = require('react-dial-master');
 
   var SetIntervalMixin = {
     componentWillMount: function() {
@@ -28,7 +18,7 @@
     }
   };
 
-  var TimerRunning = React.createClass({
+module.exports = React.createClass({
     mixins: [SetIntervalMixin], 
     getInitialState: function() {
       return {seconds: 15,
@@ -48,28 +38,16 @@
       this.setState({seconds: this.state.seconds - 1});
     },
     render: function() {
-      if (this.state.seconds > 0) {
-        return (
-          <p>Countdown {this.state.seconds} seconds
+        if (this.state.seconds > 0) {
+       return (<p>{this.state.seconds}
+          <Dial value="30" angleOffset={0} angleArc={360} readOnly={true} fgColor="#000000" />
           <br></br>
           <button onClick={this.handleClick}>{this.state.buttonLabel}</button>
-          </p>
-          );
+          </p>);
       } else {
         return (
-          <p>Pomodoro finished</p>
+          <div>Pomodoro finished</div>
           );
       }
     }
-  });
-
-  ReactDOM.render(
-    <TimerRunning />,
-    document.getElementById('countdown')
-    );
-
-  </script>
-</body>
-</html>
-
-
+})
