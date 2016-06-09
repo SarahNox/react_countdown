@@ -45,8 +45,8 @@ module.exports = React.createClass({
     },
     render: function() {
         if (this.state.seconds > 0) {
-        return(
-          <p>{this.state.seconds}
+       return (<p>{this.state.seconds}
+          <Dial value="30" angleOffset={0} angleArc={360} readOnly={true} fgColor="#000000" />
           <br></br>
           <button onClick={this.handleClick}>{this.state.buttonLabel}</button>
           </p>);
