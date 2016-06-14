@@ -2,8 +2,6 @@
 var React = require('react');
 var Circle = require('rc-progress').Circle;
 
-// var Dial = require('react-dial-master');
-
 var SetIntervalMixin = {
   componentWillMount: function() {
     this.intervals = [];
